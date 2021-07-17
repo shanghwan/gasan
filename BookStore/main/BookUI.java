@@ -31,6 +31,7 @@ public static void main(String[] args) {
 				vo.setUserName(userName = scan.next());
 				list.add(vo);
 			}
+			syso
 			
 			/* BookStore\exam01\ex1.PNG 이지미 참고!! 
 			 * 1.로그인
