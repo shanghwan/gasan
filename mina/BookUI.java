@@ -71,7 +71,9 @@ public class BookUI {
 					if(choice == 1) {
 						 System.out.println("새로운 비밀번호를 입력하세요");
 						 vo.setPwd(pwd = scan.next());
-					} 
+					} else {
+						break;
+					}
 				//하는 중!
 				
 				
