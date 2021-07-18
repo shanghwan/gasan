@@ -66,6 +66,12 @@ public class BookUI {
 			}else if(error == 5) {
 				System.out.println("비밀번호를 5회이상 틀리셨습니다.");
 				System.out.println("비밀번호 초기화를 진행하시겠습니까? Y:1 N:2");
+				
+				int choice = scan.nextInt();
+					if(choice == 1) {
+						 System.out.println("새로운 비밀번호를 입력하세요");
+						 vo.setPwd(pwd = scan.next());
+					} 
 				//하는 중!
 				
 				
