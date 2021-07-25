@@ -23,6 +23,7 @@ public class BookUI2 {
 		int error = 0;
 
 		//비밀번호 찾기 랜덤함수로 돌려서 난수로 표출해서 로그인하세요.
+		//어레이리스트
 		
 		while (true) {
 
@@ -52,7 +53,6 @@ public class BookUI2 {
 						vo.setUserName(userName = scan.next());
 						System.out.println("회원이름 수정 완료하였습니다.");
 					}
-
 				}
 				if (search.equals("2")) {
 					System.out.println("회원 전체 리스트");
