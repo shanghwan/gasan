@@ -1,8 +1,10 @@
-package shinyoung;
+package main;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import com.sun.org.apache.xml.internal.utils.SuballocatedByteVector;
 
 import main.domin.UserVO;
 
@@ -17,6 +19,8 @@ public class BookUI {
 		String user_id = "";
 		String pwd = "";
 		String userName = "";
+		String resetPwd = "0000";
+
 		int error = 0;
 
 		while (true) {
@@ -44,7 +48,13 @@ public class BookUI {
 				if (id_input.equals(vo.getUser_id()) && pwd_input.equals(vo.getPwd())) {
 					System.out.println("일치합니다. 로그인에 성공하였습니다.");
 					System.out.println(vo.getUserName() + "님 환영합니다.");
-
+					System.out.println("마이페이지로 이동하시겠습니까? 이동하시려면 1을 눌러주세요.");
+					//if (!list.isEmpty()) {
+						String str = scan.next();
+						if (str.equals("1")) {
+						System.out.println("********마이페이지********");
+						System.out.println("내 이름 : " + vo.getUserName() + "내 아이디 : " + vo.getUser_id() + "내 비밀번호 : " + vo.getPwd());
+					}
 					break;
 				} else {
 					System.out.println("일치하지 않습니다. 다시 시도하여 주세요.");
@@ -52,24 +62,31 @@ public class BookUI {
 					System.out.println(error + "번째 로그인 실패");
 				}
 				if (error >= 5) {
-					System.out.println("5회 실패로 로그인을 할 수 없습니다. \n 비밀번호 초기화를 진행하시겠습니까? Y : 1 N : 2");
-					String str = scan.nextLine();
+					System.out.println("5회 실패로 로그인을 할 수 없습니다. \n " + "비밀번호를 변경하시려면 1를 눌러주시고, \n"
+							+ "비밀번호를 0000으로 초기화진행을 원하시면 2을 눌러주세요.");
 
+					String str = scan.next();
 					if (str.equals("1")) {
-						System.out.println("********비밀번호변경********");
+						System.out.println("********비밀번호 0000으로 초기화 되었습니다.********");
+						vo.setPwd(resetPwd = scan.next());
+
+					} else if (str.equals("2")) {
+						// if (str.equals("2")) {
+						System.out.println("********비밀번호 변경********");
 						System.out.print("변경할 비밀번호를 입력하세요:");
 						vo.setPwd(pwd = scan.next());
-					} else {
-						break;
-					}
 
+					
+					}
 				}
+				
 			}
 			break;
-
+			
 		}
 	}
 }
+
 
 /*
  * BookStore\exam01\ex1.PNG 이지미 참고!! 1.로그인 2.아이디 , 비밀번호 실패 시 error카운트 1씩 증가 3.
