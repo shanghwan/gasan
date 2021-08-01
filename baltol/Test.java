@@ -53,7 +53,6 @@ class Solution{
 			//5단계
 			if(answer.length() == 0) {
 				answer = "a";
-				break;
 			}
 			
 			//6단계
